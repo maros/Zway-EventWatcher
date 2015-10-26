@@ -1,0 +1,163 @@
+{
+   "author" : "Maroš Kollár",
+   "category" : "environment",
+   "defaults" : {
+      "description" : "__description__",
+      "title" : "__title__"
+   },
+   "dependencies" : [],
+   "homepage" : "http://k-1.com",
+   "icon" : "icon.png",
+   "maturity" : "stable",
+   "moduleName" : "EventWatcher",
+   "repository" : {
+      "source" : "https://github.com/maros/Zway-EventWatcher",
+      "type" : "git"
+   },
+   "options" : {
+       "fields" : {
+           "events": {
+               "helper" : "__events_helper__",
+               "label" : "__events_label__"
+           },
+           "actions": {
+               "helper" : "__actions_helper__",
+               "label" : "__actions_label__",
+               "fields": {
+                   "item" : {
+                       "delay": {
+                           "label" : "__delay_label__",
+                           "default": 0
+                       },
+                       "switches": {
+                           "label": "__switches_label__",
+                           "fields": {
+                               "item": {
+                                   "fields": {
+                                       "device": {
+                                           "label": "",
+                                           "type": "select",
+                                           "datasource": "namespaces",
+                                           "field": "optionLabels",
+                                           "optionLabels": "namespaces:devices_switchBinary:deviceName"
+                                       },
+                                       "status": {
+                                           "label": "",
+                                           "optionLabels": ["__off__", "__on__"]
+                                       }
+                                   }
+                               }
+                           }
+                       },
+                       "dimmers": {
+                           "label": "__dimmers_label__",
+                           "fields": {
+                               "item": {
+                                   "fields": {
+                                       "device": {
+                                           "label": "",
+                                           "type": "select",
+                                           "datasource": "namespaces",
+                                           "field": "optionLabels",
+                                           "optionLabels": "namespaces:devices_switchMultilevel:deviceName"
+                                       },
+                                       "status": {
+                                           "label": "__level_label__"
+                                       }
+                                   }
+                               }
+                           }
+                       },
+                       "scenes": {
+                           "label": "__scenes_label__",
+                           "fields": {
+                               "item": {
+                                   "type": "select",
+                                   "datasource": "namespaces",
+                                   "field": "optionLabels",
+                                   "optionLabels": "namespaces:devices_toggleButton:deviceName"
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       }
+   },
+   "schema" : {
+      "properties" : {
+          "events": {
+              "type": "array",
+              "items": {
+                  "type": "string",
+                  "required": true
+              }
+          },
+          "actions" : {
+              "type": "array",
+              "items": {
+                  "type": "object",
+                  "properties": {
+                      "delay": {
+                          "type": "integer",
+                          "required": true,
+                          "default": 0
+                      },
+                      "switches": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "device": {
+                                      "field": "enum",
+                                      "datasource": "namespaces",
+                                      "enum": "namespaces:devices_switchBinary:deviceId",
+                                      "required": true
+                                  },
+                                  "status": {
+                                      "type": "integer",
+                                      "required": true,
+                                      "enum": ["off", "on"]
+                                  }
+                              }
+                          }
+                      },
+                      "dimmers": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "device": {
+                                      "field": "enum",
+                                      "datasource": "namespaces",
+                                      "enum": "namespaces:devices_switchMultilevel:deviceId",
+                                      "required": true
+                                  },
+                                  "status": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 99,
+                                      "required": true
+                                  }
+                              }
+                          }
+                      },
+                      "scenes": {
+                          "type": "array",
+                          "items": {
+                              "field": "enum",
+                              "datasource": "namespaces",
+                              "enum": "namespaces:devices_toggleButton:deviceId",
+                              "required": true
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "required" : true,
+      "type" : "object"
+   },
+   "singleton" : true,
+   "version" : "1.00"
+}
