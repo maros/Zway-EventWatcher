@@ -35,10 +35,10 @@ EventWatcher.prototype.init = function (config) {
     self.callbackEvent  = _.bind(self.handleEvent,self);
     self.callbackCancel = _.bind(self.handleCancel,self);
     
-    _.each(self.config.eventCancel,function(event) {
+    _.each(self.config.eventsCancel,function(event) {
         self.controller.on(event, self.callbackCancel);
     });
-    _.each(self.config.event,function(event) {
+    _.each(self.config.events,function(event) {
         self.controller.on(event, self.callbackEvent);
     });
     
@@ -107,10 +107,13 @@ EventWatcher.prototype.processAction = function(index) {
 };
 
 EventWatcher.prototype.performAction = function(index) {
+    var self = this;
     console.log('[EventWatcher] Running action index '+index);
     
     // Always reset timeout
     self.timeout = undefined;
+    
+    var action = self.config.actions[index];
     
     _.each(action.switches,function(element) {
         var deviceObject = self.controller.devices.get(element.device);
@@ -120,14 +123,14 @@ EventWatcher.prototype.performAction = function(index) {
                 level = (level === 'on') ? 'off':'on'; 
                 deviceObject.performCommand(level);
             } else {
-                deviceObject.performCommand(element.status);
+                deviceObject.performCommand(element.level);
             }
         }
     });
     
     _.each(action.multilevels,function(element) {
         var deviceObject = self.controller.devices.get(element.device);
-        var level = parseInt(level);
+        var level = parseInt(element.level);
         if (typeof(deviceObject) !== 'undefined') {
             deviceObject.performCommand('exact',{ level: level });
         }
