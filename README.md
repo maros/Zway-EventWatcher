@@ -46,23 +46,13 @@ Define multiple steps to run when an event was triggered.
 
 Delays the execution of the step for the given number of seconds.
 
-## actions.switches
+## actions.switches, action.switches.device, action.switches.level
 
-Define multiple switches to change
+Define multiple switches to change. Possible levels are : On, off and toggle
 
-## action.switches.device
-
-## action.switches.level
-
-Action to perform: On, off or toggle
-
-## actions.multilevel
+## actions.multilevel, action.multilevel.device, action.multilevel.level
 
 Define multiple multilevel devices to change
-
-## action.switches.device
-
-## action.switches.level
 
 ## action.scenes
 
