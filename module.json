@@ -25,58 +25,64 @@
                "label" : "__actions_label__",
                "fields": {
                    "item" : {
-                       "delay": {
-                           "label" : "__delay_label__",
-                           "default": 0
-                       },
-                       "switches": {
-                           "label": "__switches_label__",
-                           "fields": {
-                               "item": {
-                                   "fields": {
-                                       "device": {
-                                           "label": "",
-                                           "type": "select",
-                                           "datasource": "namespaces",
-                                           "field": "optionLabels",
-                                           "optionLabels": "namespaces:devices_switchBinary:deviceName"
-                                       },
-                                       "status": {
-                                           "label": "",
-                                           "optionLabels": ["__off__", "__on__"]
+                       "fields": {
+                           "delay": {
+                               "label" : "__delay_label__",
+                               "default": 0
+                           },
+                           "switches": {
+                               "label": "__switches_label__",
+                               "fields": {
+                                   "item": {
+                                       "fields": {
+                                           "device": {
+                                               "label": "",
+                                               "type": "select",
+                                               "datasource": "namespaces",
+                                               "field": "optionLabels",
+                                               "optionLabels": "namespaces:devices_switchBinary:deviceName"
+                                           },
+                                           "status": {
+                                               "label": "",
+                                               "optionLabels": ["__off__", "__on__"]
+                                           }
                                        }
                                    }
                                }
-                           }
-                       },
-                       "dimmers": {
-                           "label": "__dimmers_label__",
-                           "fields": {
-                               "item": {
-                                   "fields": {
-                                       "device": {
-                                           "label": "",
-                                           "type": "select",
-                                           "datasource": "namespaces",
-                                           "field": "optionLabels",
-                                           "optionLabels": "namespaces:devices_switchMultilevel:deviceName"
-                                       },
-                                       "status": {
-                                           "label": "__level_label__"
+                           },
+                           "dimmers": {
+                               "label": "__dimmers_label__",
+                               "fields": {
+                                   "item": {
+                                       "fields": {
+                                           "device": {
+                                               "label": "",
+                                               "type": "select",
+                                               "datasource": "namespaces",
+                                               "field": "optionLabels",
+                                               "optionLabels": "namespaces:devices_switchMultilevel:deviceName"
+                                           },
+                                           "status": {
+                                               "label": "__level_label__"
+                                           }
                                        }
                                    }
                                }
-                           }
-                       },
-                       "scenes": {
-                           "label": "__scenes_label__",
-                           "fields": {
-                               "item": {
-                                   "type": "select",
-                                   "datasource": "namespaces",
-                                   "field": "optionLabels",
-                                   "optionLabels": "namespaces:devices_toggleButton:deviceName"
+                           },
+                           "scenes": {
+                               "label": "__scenes_label__",
+                               "fields": {
+                                   "item": {
+                                       "type": "select",
+                                       "datasource": "namespaces",
+                                       "field": "optionLabels",
+                                       "optionLabels": "namespaces:devices_toggleButton:deviceName"
+                                   }
                                }
+                           }
+                           "code": {
+                                "label": "__code_label__",
+                                "type": "textarea"
                            }
                        }
                    }
@@ -150,6 +156,9 @@
                               "enum": "namespaces:devices_toggleButton:deviceId",
                               "required": true
                           }
+                      },
+                      "code": {
+                          "type": "string"
                       }
                   }
               }
