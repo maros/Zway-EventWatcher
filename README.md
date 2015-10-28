@@ -1,10 +1,76 @@
 # Zway-EventWatcher
 
-TODO
+This module allows to define logic to act upon events emitted by other 
+automation modules (eg. Rain, SecurityZone, Presence, Astronomy ...). It is 
+possible to define multiple triggering events and multiple actions to perform.
+Action steps may have arbitrary delays and consist of multiple actions.
+
+The module ensures that at any given time only one event is processed. If the
+same event is triggered while it is still processing (see actions.delay) then
+the second event is silently discarded (see also eventsCancel)
 
 # Configuration
 
-TODO
+## events
+
+Events that trigger an action. Please refer to the documentation of the 
+event emitting modules for details. Commonly used events are:
+
+* rain.start
+* security.intrusion.alarm
+* presence.home
+* presence.vacation
+* presence.away
+* presence.night
+* astronomy.sunset
+* astronomy.sunrise
+
+## eventsCancel
+
+Events that can cancel the processing of another event action. This can be 
+useful to implement coming home/going away scenes that can be aborted when
+inhabitants return shortly after leaving (eg. because they forgot something)
+Commonly used events are:
+
+* rain.stop
+* security.intrusion.cancel
+* presence.home
+* presence.vacation
+* presence.away
+
+## actions
+
+Define multiple steps to run when an event was triggered.
+
+## actions.delay
+
+Delays the execution of the step for the given number of seconds.
+
+## actions.switches
+
+Define multiple switches to change
+
+## action.switches.device
+
+## action.switches.level
+
+Action to perform: On, off or toggle
+
+## actions.multilevel
+
+Define multiple multilevel devices to change
+
+## action.switches.device
+
+## action.switches.level
+
+## action.scenes
+
+Scenes to run
+
+## code
+
+User code to run (expert only)
 
 # Events
 
