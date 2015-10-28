@@ -1,4 +1,20 @@
 {
-    "title" : "Event Watcher",
-    "description" : "Run specific actions whenever a specific event is triggered"
+   "actions_helper" : "Steps to perform",
+   "actions_label" : "Actions",
+   "code_label" : "Custom code",
+   "delay_label" : "Delay",
+   "delay_helper" : "Delays this action by the given number of seconds",
+   "description" : "Run specific actions whenever a specific event is triggered",
+   "events_cancel_helper" : "These events cancel the processing of delayed actions",
+   "events_cancel_label" : "Cancel events",
+   "events_label" : "Trigger events",
+   "events_helper" : "These events trigger the processing of actions",
+   "level_label" : "Level",
+   "multilevels_label" : "Multilevel devices",
+   "off" : "Off",
+   "on" : "On",
+   "scenes_label" : "Scenes",
+   "switches_label" : "Switch devices",
+   "title" : "Event Watcher",
+   "toggle" : "Toggle"
 }

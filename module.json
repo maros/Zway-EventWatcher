@@ -32,6 +32,7 @@
                        "fields": {
                            "delay": {
                                "label" : "__delay_label__",
+                               "helper" : "__delay_helper__",
                                "default": 0
                            },
                            "switches": {
