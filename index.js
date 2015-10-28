@@ -95,7 +95,7 @@ EventWatcher.prototype.processAction = function(index) {
         return;
     }
     
-    if (typeof(action.delay) === 'integer'
+    if (typeof(action.delay) === 'number'
         && action.delay > 0) {
         self.timeout = setTimeout(
             _.bind(self.performAction,self,index),
