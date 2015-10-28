@@ -18,22 +18,26 @@
        "fields" : {
            "events": {
                "helper" : "__events_helper__",
-               "label" : "__events_label__"
+               "label" : "__events_label__",
+               "order": 1
            },
            "eventsCancel": {
                "helper" : "__events_cancel_helper__",
-               "label" : "__events_cancel_label__"
+               "label" : "__events_cancel_label__",
+               "order": 2
            },
            "actions": {
                "helper" : "__actions_helper__",
                "label" : "__actions_label__",
+               "order": 3,
                "fields": {
                    "item" : {
                        "fields": {
                            "delay": {
                                "label" : "__delay_label__",
                                "helper" : "__delay_helper__",
-                               "default": 0
+                               "default": 0,
+                               "order": 1
                            },
                            "switches": {
                                "label": "__switches_label__",
@@ -53,7 +57,8 @@
                                            }
                                        }
                                    }
-                               }
+                               },
+                               "order": 2
                            },
                            "multilevels": {
                                "label": "__multilevels_label__",
@@ -72,7 +77,8 @@
                                            }
                                        }
                                    }
-                               }
+                               },
+                               "order": 3
                            },
                            "scenes": {
                                "label": "__scenes_label__",
@@ -83,11 +89,13 @@
                                        "field": "optionLabels",
                                        "optionLabels": "namespaces:devices_toggleButton:deviceName"
                                    }
-                               }
+                               },
+                               "order": 4
                            },
                            "code": {
                                 "label": "__code_label__",
-                                "type": "textarea"
+                                "type": "textarea",
+                                "order": 5
                            }
                        }
                    }
