@@ -20,6 +20,10 @@
                "helper" : "__events_helper__",
                "label" : "__events_label__"
            },
+           "eventsCancel": {
+               "helper" : "__events_cancel_helper__",
+               "label" : "__events_cancel_label__"
+           },
            "actions": {
                "helper" : "__actions_helper__",
                "label" : "__actions_label__",
@@ -42,16 +46,16 @@
                                                "field": "optionLabels",
                                                "optionLabels": "namespaces:devices_switchBinary:deviceName"
                                            },
-                                           "status": {
+                                           "level": {
                                                "label": "",
-                                               "optionLabels": ["__off__", "__on__"]
+                                               "optionLabels": ["__off__", "__on__", "__toggle__"]
                                            }
                                        }
                                    }
                                }
                            },
-                           "dimmers": {
-                               "label": "__dimmers_label__",
+                           "multilevels": {
+                               "label": "__multilevels_label__",
                                "fields": {
                                    "item": {
                                        "fields": {
@@ -62,7 +66,7 @@
                                                "field": "optionLabels",
                                                "optionLabels": "namespaces:devices_switchMultilevel:deviceName"
                                            },
-                                           "status": {
+                                           "level": {
                                                "label": "__level_label__"
                                            }
                                        }
@@ -79,7 +83,7 @@
                                        "optionLabels": "namespaces:devices_toggleButton:deviceName"
                                    }
                                }
-                           }
+                           },
                            "code": {
                                 "label": "__code_label__",
                                 "type": "textarea"
@@ -94,6 +98,14 @@
       "properties" : {
           "events": {
               "type": "array",
+              "minItems" : 1,
+              "items": {
+                  "type": "string",
+                  "required": true
+              }
+          },
+          "eventsCancel": {
+              "type": "array",
               "items": {
                   "type": "string",
                   "required": true
@@ -101,6 +113,7 @@
           },
           "actions" : {
               "type": "array",
+              "minItems" : 1,
               "items": {
                   "type": "object",
                   "properties": {
@@ -120,15 +133,15 @@
                                       "enum": "namespaces:devices_switchBinary:deviceId",
                                       "required": true
                                   },
-                                  "status": {
+                                  "level": {
                                       "type": "integer",
                                       "required": true,
-                                      "enum": ["off", "on"]
+                                      "enum": ["off", "on", "toggle"]
                                   }
                               }
                           }
                       },
-                      "dimmers": {
+                      "multilevels": {
                           "type": "array",
                           "items": {
                               "type": "object",
@@ -139,7 +152,7 @@
                                       "enum": "namespaces:devices_switchMultilevel:deviceId",
                                       "required": true
                                   },
-                                  "status": {
+                                  "level": {
                                       "type": "integer",
                                       "minimum": 0,
                                       "maximum": 99,
@@ -167,6 +180,6 @@
       "required" : true,
       "type" : "object"
    },
-   "singleton" : true,
+   "singleton" : false,
    "version" : "1.00"
 }
