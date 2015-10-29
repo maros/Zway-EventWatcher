@@ -10,185 +10,193 @@
    "icon" : "icon.png",
    "maturity" : "stable",
    "moduleName" : "EventWatcher",
+   "options" : {
+      "fields" : {
+         "actions" : {
+            "fields" : {
+               "item" : {
+                  "fields" : {
+                     "code" : {
+                        "label" : "__code_label__",
+                        "order" : 5,
+                        "type" : "textarea"
+                     },
+                     "delay" : {
+                        "default" : 0,
+                        "helper" : "__delay_helper__",
+                        "label" : "__delay_label__",
+                        "order" : 1
+                     },
+                     "multilevels" : {
+                        "fields" : {
+                           "item" : {
+                              "fields" : {
+                                 "device" : {
+                                    "datasource" : "namespaces",
+                                    "field" : "optionLabels",
+                                    "label" : "",
+                                    "optionLabels" : "namespaces:devices_switchMultilevel:deviceName",
+                                    "type" : "select"
+                                 },
+                                 "level" : {
+                                    "label" : "__level_label__"
+                                 }
+                              }
+                           }
+                        },
+                        "label" : "__multilevels_label__",
+                        "order" : 3
+                     },
+                     "scenes" : {
+                        "fields" : {
+                           "item" : {
+                              "datasource" : "namespaces",
+                              "field" : "optionLabels",
+                              "optionLabels" : "namespaces:devices_toggleButton:deviceName",
+                              "type" : "select"
+                           }
+                        },
+                        "label" : "__scenes_label__",
+                        "order" : 4
+                     },
+                     "switches" : {
+                        "fields" : {
+                           "item" : {
+                              "fields" : {
+                                 "device" : {
+                                    "datasource" : "namespaces",
+                                    "field" : "optionLabels",
+                                    "label" : "",
+                                    "optionLabels" : "namespaces:devices_switchBinary:deviceName",
+                                    "type" : "select"
+                                 },
+                                 "level" : {
+                                    "label" : "",
+                                    "optionLabels" : [
+                                       "__off__",
+                                       "__on__",
+                                       "__toggle__"
+                                    ]
+                                 }
+                              }
+                           }
+                        },
+                        "label" : "__switches_label__",
+                        "order" : 2
+                     }
+                  }
+               }
+            },
+            "helper" : "__actions_helper__",
+            "label" : "__actions_label__",
+            "order" : 3
+         },
+         "events" : {
+            "helper" : "__events_helper__",
+            "label" : "__events_label__",
+            "order" : 1
+         },
+         "eventsCancel" : {
+            "helper" : "__events_cancel_helper__",
+            "label" : "__events_cancel_label__",
+            "order" : 2
+         }
+      }
+   },
    "repository" : {
       "source" : "https://github.com/maros/Zway-EventWatcher",
       "type" : "git"
    },
-   "options" : {
-       "fields" : {
-           "events": {
-               "helper" : "__events_helper__",
-               "label" : "__events_label__",
-               "order": 1
-           },
-           "eventsCancel": {
-               "helper" : "__events_cancel_helper__",
-               "label" : "__events_cancel_label__",
-               "order": 2
-           },
-           "actions": {
-               "helper" : "__actions_helper__",
-               "label" : "__actions_label__",
-               "order": 3,
-               "fields": {
-                   "item" : {
-                       "fields": {
-                           "delay": {
-                               "label" : "__delay_label__",
-                               "helper" : "__delay_helper__",
-                               "default": 0,
-                               "order": 1
-                           },
-                           "switches": {
-                               "label": "__switches_label__",
-                               "fields": {
-                                   "item": {
-                                       "fields": {
-                                           "device": {
-                                               "label": "",
-                                               "type": "select",
-                                               "datasource": "namespaces",
-                                               "field": "optionLabels",
-                                               "optionLabels": "namespaces:devices_switchBinary:deviceName"
-                                           },
-                                           "level": {
-                                               "label": "",
-                                               "optionLabels": ["__off__", "__on__", "__toggle__"]
-                                           }
-                                       }
-                                   }
-                               },
-                               "order": 2
-                           },
-                           "multilevels": {
-                               "label": "__multilevels_label__",
-                               "fields": {
-                                   "item": {
-                                       "fields": {
-                                           "device": {
-                                               "label": "",
-                                               "type": "select",
-                                               "datasource": "namespaces",
-                                               "field": "optionLabels",
-                                               "optionLabels": "namespaces:devices_switchMultilevel:deviceName"
-                                           },
-                                           "level": {
-                                               "label": "__level_label__"
-                                           }
-                                       }
-                                   }
-                               },
-                               "order": 3
-                           },
-                           "scenes": {
-                               "label": "__scenes_label__",
-                               "fields": {
-                                   "item": {
-                                       "type": "select",
-                                       "datasource": "namespaces",
-                                       "field": "optionLabels",
-                                       "optionLabels": "namespaces:devices_toggleButton:deviceName"
-                                   }
-                               },
-                               "order": 4
-                           },
-                           "code": {
-                                "label": "__code_label__",
-                                "type": "textarea",
-                                "order": 5
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   },
    "schema" : {
       "properties" : {
-          "events": {
-              "type": "array",
-              "minItems" : 1,
-              "items": {
-                  "type": "string",
-                  "required": true
-              }
-          },
-          "eventsCancel": {
-              "type": "array",
-              "items": {
-                  "type": "string",
-                  "required": true
-              }
-          },
-          "actions" : {
-              "type": "array",
-              "minItems" : 1,
-              "items": {
-                  "type": "object",
-                  "properties": {
-                      "delay": {
-                          "type": "integer",
-                          "required": true,
-                          "default": 0
-                      },
-                      "switches": {
-                          "type": "array",
-                          "items": {
-                              "type": "object",
-                              "properties": {
-                                  "device": {
-                                      "field": "enum",
-                                      "datasource": "namespaces",
-                                      "enum": "namespaces:devices_switchBinary:deviceId",
-                                      "required": true
-                                  },
-                                  "level": {
-                                      "type": "integer",
-                                      "required": true,
-                                      "enum": ["off", "on", "toggle"]
-                                  }
-                              }
-                          }
-                      },
-                      "multilevels": {
-                          "type": "array",
-                          "items": {
-                              "type": "object",
-                              "properties": {
-                                  "device": {
-                                      "field": "enum",
-                                      "datasource": "namespaces",
-                                      "enum": "namespaces:devices_switchMultilevel:deviceId",
-                                      "required": true
-                                  },
-                                  "level": {
-                                      "type": "integer",
-                                      "minimum": 0,
-                                      "maximum": 99,
-                                      "required": true
-                                  }
-                              }
-                          }
-                      },
-                      "scenes": {
-                          "type": "array",
-                          "items": {
-                              "field": "enum",
-                              "datasource": "namespaces",
-                              "enum": "namespaces:devices_toggleButton:deviceId",
-                              "required": true
-                          }
-                      },
-                      "code": {
-                          "type": "string"
-                      }
+         "actions" : {
+            "items" : {
+               "properties" : {
+                  "code" : {
+                     "type" : "string"
+                  },
+                  "delay" : {
+                     "default" : 0,
+                     "required" : true,
+                     "type" : "integer"
+                  },
+                  "multilevels" : {
+                     "items" : {
+                        "properties" : {
+                           "device" : {
+                              "datasource" : "namespaces",
+                              "enum" : "namespaces:devices_switchMultilevel:deviceId",
+                              "field" : "enum",
+                              "required" : true
+                           },
+                           "level" : {
+                              "maximum" : 99,
+                              "minimum" : 0,
+                              "required" : true,
+                              "type" : "integer"
+                           }
+                        },
+                        "type" : "object"
+                     },
+                     "type" : "array"
+                  },
+                  "scenes" : {
+                     "items" : {
+                        "datasource" : "namespaces",
+                        "enum" : "namespaces:devices_toggleButton:deviceId",
+                        "field" : "enum",
+                        "required" : true
+                     },
+                     "type" : "array"
+                  },
+                  "switches" : {
+                     "items" : {
+                        "properties" : {
+                           "device" : {
+                              "datasource" : "namespaces",
+                              "enum" : "namespaces:devices_switchBinary:deviceId",
+                              "field" : "enum",
+                              "required" : true
+                           },
+                           "level" : {
+                              "enum" : [
+                                 "off",
+                                 "on",
+                                 "toggle"
+                              ],
+                              "required" : true,
+                              "type" : "integer"
+                           }
+                        },
+                        "type" : "object"
+                     },
+                     "type" : "array"
                   }
-              }
-          }
+               },
+               "type" : "object"
+            },
+            "minItems" : 1,
+            "type" : "array"
+         },
+         "events" : {
+            "items" : {
+               "required" : true,
+               "type" : "string"
+            },
+            "minItems" : 1,
+            "type" : "array"
+         },
+         "eventsCancel" : {
+            "items" : {
+               "required" : true,
+               "type" : "string"
+            },
+            "type" : "array"
+         }
       },
       "required" : true,
       "type" : "object"
    },
    "singleton" : false,
-   "version" : "1.00"
+   "version" : "1.01"
 }
