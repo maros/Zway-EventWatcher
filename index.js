@@ -47,10 +47,10 @@ EventWatcher.prototype.init = function (config) {
 EventWatcher.prototype.stop = function () {
     var self = this;
     
-    _.each(self.config.eventCancel,function(event) {
-        self.controller.off(event, self.eventCancel);
+    _.each(self.config.eventsCancel,function(event) {
+        self.controller.off(event, self.callbackCancel);
     });
-    _.each(self.config.event,function(event) {
+    _.each(self.config.events,function(event) {
         self.controller.off(event, self.callbackEvent);
     });
     
@@ -69,7 +69,7 @@ EventWatcher.prototype.stop = function () {
 EventWatcher.prototype.handleCancel = function() {
     var self = this;
     
-    if (typeof(action) !== 'undefined') {
+    if (typeof(self.timeout) !== 'undefined') {
         console.log('[EventWatcher] Got cancel event');
         clearTimeout(self.timeout);
         self.timeout = undefined;
