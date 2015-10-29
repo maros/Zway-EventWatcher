@@ -1,13 +1,15 @@
 # Zway-EventWatcher
 
 This module allows to define logic to act upon events emitted by other 
-automation modules (eg. Rain, SecurityZone, Presence, Astronomy ...). It is 
-possible to define multiple triggering events and multiple actions to perform.
-Action steps may have arbitrary delays and consist of multiple actions.
+automation modules (eg. Rain, SecurityZone, Presence, Astronomy, Season ...),
+but also metrics change events. It is possible to define multiple triggering 
+events and multiple actions to perform. Action steps may have arbitrary delays
+and consist of multiple actions and custom code.
 
 The module ensures that at any given time only one event is processed. If the
 same event is triggered while it is still processing (see actions.delay) then
-the second event is silently discarded (see also eventsCancel)
+the second event is silently discarded. Cancelling events that stop the 
+further processing of delayed events is also possible. (see eventsCancel)
 
 # Configuration
 
@@ -16,6 +18,7 @@ the second event is silently discarded (see also eventsCancel)
 Events that trigger an action. Please refer to the documentation of the 
 event emitting modules for details. Commonly used events are:
 
+* metrics:level:change
 * rain.start
 * security.intrusion.alarm
 * presence.home
