@@ -147,6 +147,7 @@
                         "field" : "enum",
                         "required" : true
                      },
+                     "uniqueItems": true,
                      "type" : "array"
                   },
                   "switches" : {
@@ -184,6 +185,7 @@
                "type" : "string"
             },
             "minItems" : 1,
+            "uniqueItems": true,
             "type" : "array"
          },
          "eventsCancel" : {
@@ -191,6 +193,7 @@
                "required" : true,
                "type" : "string"
             },
+            "uniqueItems": true,
             "type" : "array"
          }
       },
