@@ -117,7 +117,7 @@ EventWatcher.prototype.performAction = function(index) {
     
     _.each(action.switches,function(element) {
         var deviceObject = self.controller.devices.get(element.device);
-        if (typeof(deviceObject) !== 'undefined') {
+        if (deviceObject !== null) {
             if (element.status === 'toggle') {
                 var level = deviceObject.get('metrics:level');
                 level = (level === 'on') ? 'off':'on'; 
@@ -131,14 +131,14 @@ EventWatcher.prototype.performAction = function(index) {
     _.each(action.multilevels,function(element) {
         var deviceObject = self.controller.devices.get(element.device);
         var level = parseInt(element.level);
-        if (typeof(deviceObject) !== 'undefined') {
+        if (deviceObject !== null) {
             deviceObject.performCommand('exact',{ level: level });
         }
     });
     
     _.each(action.scenes,function(element) {
         var deviceObject = self.controller.devices.get(element);
-        if (typeof(deviceObject) !== 'undefined') {
+        if (deviceObject !== null) {
             deviceObject.performCommand('on');
         }
     });
