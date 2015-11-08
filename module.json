@@ -130,7 +130,7 @@
                               "required" : true
                            },
                            "level" : {
-                              "maximum" : 99,
+                              "maximum" : 255,
                               "minimum" : 0,
                               "required" : true,
                               "type" : "integer"
