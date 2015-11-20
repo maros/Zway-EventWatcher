@@ -1,6 +1,6 @@
 {
    "author" : "Maroš Kollár",
-   "category" : "environment",
+   "category" : "scheduling",
    "defaults" : {
       "description" : "__description__",
       "title" : "__title__"
