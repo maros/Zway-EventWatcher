@@ -10,6 +10,8 @@ Description:
 
 ******************************************************************************/
 
+/* jshint evil:true */
+
 function EventWatcher (id, controller) {
     // Call superconstructor first (AutomationModule)
     EventWatcher.super_.call(this, id, controller);
@@ -73,7 +75,7 @@ EventWatcher.prototype.handleCancel = function() {
         console.log('[EventWatcher] Got cancel event');
         clearTimeout(self.timeout);
         self.timeout = undefined;
-    };
+    }
 };
 
 EventWatcher.prototype.handleEvent = function() {
@@ -130,7 +132,7 @@ EventWatcher.prototype.performAction = function(index) {
     
     _.each(action.multilevels,function(element) {
         var deviceObject = self.controller.devices.get(element.device);
-        var level = parseInt(element.level);
+        var level = parseInt(element.level,10);
         if (deviceObject !== null) {
             deviceObject.performCommand('exact',{ level: level });
         }
@@ -145,9 +147,9 @@ EventWatcher.prototype.performAction = function(index) {
     
     if (typeof(action.code) !== 'undefined') {
         try {
-            eval(action.code)
+            eval(action.code);
         } catch(e) {
-            console.error('[EventWatcher] Error running custom code in index '+index+': '+e)
+            console.error('[EventWatcher] Error running custom code in index '+index+': '+e);
         }
     }
     
