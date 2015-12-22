@@ -20,6 +20,7 @@ event emitting modules for details. Commonly used events are:
 
 * rain.start
 * security.intrusion.alarm
+* security.intrusion.delayAlarm
 * presence.home
 * presence.vacation
 * presence.away
