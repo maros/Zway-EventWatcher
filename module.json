@@ -147,8 +147,8 @@
                         "field" : "enum",
                         "required" : true
                      },
-                     "uniqueItems": true,
-                     "type" : "array"
+                     "type" : "array",
+                     "uniqueItems" : true
                   },
                   "switches" : {
                      "items" : {
@@ -185,21 +185,21 @@
                "type" : "string"
             },
             "minItems" : 1,
-            "uniqueItems": true,
-            "type" : "array"
+            "type" : "array",
+            "uniqueItems" : true
          },
          "eventsCancel" : {
             "items" : {
                "required" : true,
                "type" : "string"
             },
-            "uniqueItems": true,
-            "type" : "array"
+            "type" : "array",
+            "uniqueItems" : true
          }
       },
       "required" : true,
       "type" : "object"
    },
    "singleton" : false,
-   "version" : "1.01"
+   "version" : 1.02
 }

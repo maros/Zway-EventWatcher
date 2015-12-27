@@ -1,2 +1,10 @@
-2015 Oct 29, Thu
+1.02 2015 Dec 27, Sun
+    * Update documentation
+    * Cleanup jshint
+    * Update category
+    * Max 255 for multilevel
+    * Use 'null' to check for missing devices
+    * Add unique constraint
+
+1.01 2015 Oct 29, Thu
     * Initial release
