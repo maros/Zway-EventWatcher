@@ -4,7 +4,7 @@
    "code_label" : "Custom code",
    "delay_label" : "Delay",
    "delay_helper" : "Delays this action by the given number of seconds",
-   "description" : "Run specific actions whenever a specific event is triggered",
+   "m_descr" : "Run multiple actions whenever a specific event is triggered. Allows to set multiple actions with arbitrary delays.",
    "events_cancel_helper" : "These events cancel the processing of delayed actions",
    "events_cancel_label" : "Cancel events",
    "events_label" : "Trigger events",
@@ -15,6 +15,6 @@
    "on" : "On",
    "scenes_label" : "Scenes",
    "switches_label" : "Switch devices",
-   "title" : "Event Watcher",
+   "m_title" : "Event Watcher",
    "toggle" : "Toggle"
 }
