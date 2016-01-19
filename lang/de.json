@@ -1,0 +1,20 @@
+{
+   "actions_helper" : "Aktionen die nacheinander ausgeführt werden sollen",
+   "actions_label" : "Aktionen",
+   "code_label" : "Benutzerdefinierter Code",
+   "delay_label" : "Verzögerung",
+   "delay_helper" : "Vezögert diese Aktion (in Sekunden)",
+   "m_descr" : "Dieses Modul überwacht die eingestellen Ereignisse und führt die definierten Aktionen aus. Ereignisse (Events) können von anderen Automatisierungsmodulen wie zB. dem virtuellen Regensensor, Sicherheits Zone, Astronomie oder dem Anwesenheitsmodul stammen. Mehrer Aktionen wie zB. das Schalten von Beleuchtung und Dimmern und Szenen können mit beliebigen Zeitabständen definiert werden. Optional können verzögerte Aktionen durch andere Ereignisse unterbrochen werden.",
+   "events_cancel_helper" : "Liste der Ereignisse die die Verabeitung von mehrstufigen Aktionen abbrechen sollen",
+   "events_cancel_label" : "Abbruch Ereignisse",
+   "events_label" : "Überwachte Ereignisse",
+   "events_helper" : "Liste der Ereignisse die überwacht werden sollen und die Aktionen anstossen sollen",
+   "level_label" : "Level",
+   "multilevels_label" : "Analoge Schalter",
+   "off" : "Aus",
+   "on" : "An",
+   "scenes_label" : "Szenen",
+   "switches_label" : "Binäre Schalter",
+   "m_title" : "Ereigniss Überwachung",
+   "toggle" : "Umschalten"
+}
