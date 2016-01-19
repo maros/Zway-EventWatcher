@@ -4,7 +4,7 @@
    "code_label" : "Custom code",
    "delay_label" : "Delay",
    "delay_helper" : "Delays this action by the given number of seconds",
-   "m_descr" : "Run multiple actions whenever a specific event is triggered. Allows to set multiple actions with arbitrary delays.",
+   "m_descr" : "Run multiple actions whenever a specific event is triggered. Events may be triggered from other automation modules such as the Rain, SecurityZone, Astronomy or Presence modules. It is possible to define multiple actions, such as switching lights, dimmers and running scenes. An event watcher can consist of multiple steps that run with configurable delays. Optionally, the processing of multi-step watchers can be canceled by other events.",
    "events_cancel_helper" : "These events cancel the processing of delayed actions",
    "events_cancel_label" : "Cancel events",
    "events_label" : "Trigger events",
