@@ -9,7 +9,7 @@
    "events_helper" : "These events trigger the processing of actions",
    "events_label" : "Trigger events",
    "level_label" : "Level",
-   "m_descr" : "Run multiple actions whenever a specific event is triggered. Events may be triggered from other automation modules such as the Rain, SecurityZone, Astronomy or Presence modules. It is possible to define multiple actions, such as switching lights, dimmers and running scenes. An event watcher can consist of multiple steps that run with configurable delays. Optionally, the processing of multi-step watchers can be canceled by other events.<br>Check  <a href=\"https://github.com/maros/Zway-EventWatcher/blob/master/README.md\">github.com/maros/Zway-EventWatcher</a> for detailed documentation.",
+   "m_descr" : "Run multiple actions whenever a specific event is triggered. Events may be triggered from other automation modules such as the Rain, SecurityZone, Astronomy or Presence modules. It is possible to define multiple actions, such as switching lights, dimmers and running scenes. An event watcher can consist of multiple steps that run with configurable delays. Optionally, the processing of multi-step watchers can be canceled by other events.<br>Check <a href=https://github.com/maros/Zway-EventWatcher/blob/master/README.md>github.com/maros/Zway-EventWatcher</a> for detailed documentation.",
    "m_title" : "Event Watcher",
    "multilevels_label" : "Multilevel devices",
    "off" : "Off",
