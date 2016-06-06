@@ -1,10 +1,10 @@
 # Zway-EventWatcher
 
-This module allows to define logic to act upon events emitted by other 
-automation modules (eg. Rain, SecurityZone, Presence, Astronomy, Season ...). 
-It is possible to define multiple triggering events and multiple actions to 
-perform. Action steps may have arbitrary delays and consist of multiple 
-actions and custom code.
+This module allows to define logic to act upon events emitted by other
+automation modules (eg. Rain, SecurityZone, Presence, Astronomy, Season,
+ConditionSwitch, ...). It is possible to define multiple triggering events
+and multiple actions to perform. Action steps may have arbitrary delays and
+consist of multiple actions and custom JavaScript code.
 
 The module ensures that at any given time only one event is processed. If the
 same event is triggered while it is still processing (see actions.delay) then
