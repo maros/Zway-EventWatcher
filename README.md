@@ -63,11 +63,13 @@ Scenes to run
 
 ## code
 
-User code to run (expert only)
+User code to run (expert only). The code can access the original event
+via the variable event in its scope.
 
 # Events
 
-No events are emitted
+No events are emitted. Listens to events configured in events and
+cancelEvents.
 
 # Installation
 
