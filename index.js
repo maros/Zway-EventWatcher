@@ -78,18 +78,18 @@ EventWatcher.prototype.handleCancel = function() {
     }
 };
 
-EventWatcher.prototype.handleEvent = function() {
+EventWatcher.prototype.handleEvent = function(event) {
     var self = this;
     
     if (typeof(self.timeout) === 'undefined') {
         console.log('[EventWatcher] Got event');
-        self.processAction(0);
+        self.processAction(0,event);
     } else {
         console.log('[EventWatcher] Ignoring event. Already running');
     }
 };
 
-EventWatcher.prototype.processAction = function(index) {
+EventWatcher.prototype.processAction = function(index,event) {
     var self = this;
     
     var action = self.config.actions[index];
@@ -100,15 +100,15 @@ EventWatcher.prototype.processAction = function(index) {
     if (typeof(action.delay) === 'number'
         && action.delay > 0) {
         self.timeout = setTimeout(
-            _.bind(self.performAction,self,index),
+            _.bind(self.performAction,self,index,event),
             (action.delay * 1000)
         );
     } else {
-        self.performAction(index);
+        self.performAction(index,event);
     }
 };
 
-EventWatcher.prototype.performAction = function(index) {
+EventWatcher.prototype.performAction = function(index,event) {
     var self = this;
     console.log('[EventWatcher] Running action index '+index);
     
@@ -146,12 +146,16 @@ EventWatcher.prototype.performAction = function(index) {
     });
     
     if (typeof(action.code) !== 'undefined') {
-        try {
-            eval(action.code);
-        } catch(e) {
-            console.error('[EventWatcher] Error running custom code in index '+index+': '+e);
-        }
+        self.evalCode(action.code,index,event);
     }
     
-    self.processAction(index+1);
+    self.processAction(index+1,event);
+};
+
+EventWatcher.prototype.evalCode = function(code,index,event) {
+    try {
+        eval(code);
+    } catch(e) {
+        console.error('[EventWatcher] Error running custom code in index '+index+': '+e);
+    }
 };
