@@ -37,11 +37,11 @@ EventWatcher.prototype.init = function (config) {
     self.callbackEvent  = _.bind(self.handleEvent,self);
     self.callbackCancel = _.bind(self.handleCancel,self);
     
-    _.each(self.config.eventsCancel,function(event) {
-        self.controller.on(event, self.callbackCancel);
+    _.each(self.config.eventsCancel,function(eventName) {
+        self.controller.on(eventName, self.callbackCancel);
     });
-    _.each(self.config.events,function(event) {
-        self.controller.on(event, self.callbackEvent);
+    _.each(self.config.events,function(eventName) {
+        self.controller.on(eventName, self.callbackEvent);
     });
     
 };
@@ -49,11 +49,11 @@ EventWatcher.prototype.init = function (config) {
 EventWatcher.prototype.stop = function () {
     var self = this;
     
-    _.each(self.config.eventsCancel,function(event) {
-        self.controller.off(event, self.callbackCancel);
+    _.each(self.config.eventsCancel,function(eventName) {
+        self.controller.off(eventName, self.callbackCancel);
     });
-    _.each(self.config.events,function(event) {
-        self.controller.off(event, self.callbackEvent);
+    _.each(self.config.events,function(eventName) {
+        self.controller.off(eventName, self.callbackEvent);
     });
     
     self.handleCancel();
