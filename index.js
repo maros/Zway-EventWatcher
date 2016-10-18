@@ -152,8 +152,8 @@ EventWatcher.prototype.performAction = function(index,event) {
     _.forEach(action.notifications,function(element){
         var deviceObject = self.controller.devices.get(element.device);
         if (deviceObject !== null) {
-            if ((event["message"] !== undefined )) {
-                message = event["message"];
+            if ((event.message !== undefined )) {
+                message = event.message;
             } else {
                 message = element.message;
             }
