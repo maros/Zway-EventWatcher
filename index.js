@@ -15,7 +15,7 @@ Description:
 function EventWatcher (id, controller) {
     // Call superconstructor first (AutomationModule)
     EventWatcher.super_.call(this, id, controller);
-    
+
     this.callbackEvent  = undefined;
     this.callbackCancel = undefined;
     this.timeout        = undefined;
@@ -33,34 +33,34 @@ EventWatcher.prototype.init = function (config) {
     EventWatcher.super_.prototype.init.call(this, config);
 
     var self = this;
-    
+
     self.callbackEvent  = _.bind(self.handleEvent,self);
     self.callbackCancel = _.bind(self.handleCancel,self);
-    
+
     _.each(self.config.eventsCancel,function(eventName) {
         self.controller.on(eventName, self.callbackCancel);
     });
     _.each(self.config.events,function(eventName) {
         self.controller.on(eventName, self.callbackEvent);
     });
-    
+
 };
 
 EventWatcher.prototype.stop = function () {
     var self = this;
-    
+
     _.each(self.config.eventsCancel,function(eventName) {
         self.controller.off(eventName, self.callbackCancel);
     });
     _.each(self.config.events,function(eventName) {
         self.controller.off(eventName, self.callbackEvent);
     });
-    
+
     self.handleCancel();
-    
+
     self.callbackEvent  = undefined;
     self.callbackCancel = undefined;
-    
+
     EventWatcher.super_.prototype.stop.call(this);
 };
 
@@ -70,7 +70,7 @@ EventWatcher.prototype.stop = function () {
 
 EventWatcher.prototype.handleCancel = function() {
     var self = this;
-    
+
     if (typeof(self.timeout) !== 'undefined') {
         console.log('[EventWatcher] Got cancel event');
         clearTimeout(self.timeout);
@@ -91,12 +91,12 @@ EventWatcher.prototype.handleEvent = function(event) {
 
 EventWatcher.prototype.processAction = function(index,event) {
     var self = this;
-    
+
     var action = self.config.actions[index];
     if (typeof(action) === 'undefined') {
         return;
     }
-    
+
     if (typeof(action.delay) === 'number'
         && action.delay > 0) {
         self.timeout = setTimeout(
@@ -111,25 +111,25 @@ EventWatcher.prototype.processAction = function(index,event) {
 EventWatcher.prototype.performAction = function(index,event) {
     var self = this;
     console.log('[EventWatcher] Running action index '+index);
-    
+
     // Always reset timeout
     self.timeout = undefined;
-    
+
     var action = self.config.actions[index];
-    
+
     _.each(action.switches,function(element) {
         var deviceObject = self.controller.devices.get(element.device);
         if (deviceObject !== null) {
             if (element.status === 'toggle') {
                 var level = deviceObject.get('metrics:level');
-                level = (level === 'on') ? 'off':'on'; 
+                level = (level === 'on') ? 'off':'on';
                 deviceObject.performCommand(level);
             } else {
                 deviceObject.performCommand(element.level);
             }
         }
     });
-    
+
     _.each(action.multilevels,function(element) {
         var deviceObject = self.controller.devices.get(element.device);
         var level = parseInt(element.level,10);
@@ -137,18 +137,18 @@ EventWatcher.prototype.performAction = function(index,event) {
             deviceObject.performCommand('exact',{ level: level });
         }
     });
-    
+
     _.each(action.scenes,function(element) {
         var deviceObject = self.controller.devices.get(element);
         if (deviceObject !== null) {
             deviceObject.performCommand('on');
         }
     });
-    
+
     if (typeof(action.code) !== 'undefined') {
         self.evalCode(action.code,index,event);
     }
-	
+
     _.forEach(action.notifications,function(element){
         var deviceObject = self.controller.devices.get(element.device);
         if (deviceObject !== null) {
@@ -160,9 +160,9 @@ EventWatcher.prototype.performAction = function(index,event) {
             deviceObject.set('metrics:message', message, {silent: true});
             deviceObject.performCommand('on');
             deviceObject.set('metrics:message', '', {silent: true});
-        } 
+        }
     });
-    
+
     self.processAction(index+1,event);
 };
 
