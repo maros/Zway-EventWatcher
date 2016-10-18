@@ -83,6 +83,28 @@
                         },
                         "label" : "__switches_label__",
                         "order" : 2
+                     },
+                     "notifications": {
+                        "fields": {
+                           "item": {
+                              "fields": {
+                                 "device":{
+                                    "type": "select",
+                                    "label": "__notifications_helper__",
+                                    "datasource": "namespaces",
+                                    "field": "optionLabels",
+                                    "optionLabels": "namespaces:devices_toggleButton:notification:deviceName"
+                                 },
+                                 "message":{
+                                    "helper" : "__notifications_message_helper__",
+                                    "label":"__notifications_message__",
+                                    "type": "textarea"
+                                 }
+                              }
+                           }
+                        },
+                        "label" : "__notifications_label__",
+                        "order" : 5
                      }
                   }
                }
@@ -150,7 +172,7 @@
                      "type" : "array",
                      "uniqueItems" : true
                   },
-                  "switches" : {
+		          "switches" : {
                      "items" : {
                         "properties" : {
                            "device" : {
@@ -172,6 +194,22 @@
                         "type" : "object"
                      },
                      "type" : "array"
+                  },
+                  "notifications": {
+                     "type": "array",
+                     "items": {
+                        "type":"object",
+                        "properties":{
+                           "device":{
+                              "field": "enum",
+                              "datasource": "namespaces",
+                              "enum": "namespaces:devices_toggleButton:notification:deviceId"
+                           },
+                           "message":{
+                              "type":"string"
+                           }
+                        }
+                     }
                   }
                },
                "type" : "object"
@@ -201,5 +239,5 @@
       "type" : "object"
    },
    "singleton" : false,
-   "version" : "1.04"
+   "version" : "1.05"
 }

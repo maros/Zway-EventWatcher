@@ -16,7 +16,7 @@ function EventWatcher (id, controller) {
     // Call superconstructor first (AutomationModule)
     EventWatcher.super_.call(this, id, controller);
     
-    this.eventCallback  = undefined;
+    this.callbackEvent  = undefined;
     this.callbackCancel = undefined;
     this.timeout        = undefined;
 }
@@ -80,7 +80,7 @@ EventWatcher.prototype.handleCancel = function() {
 
 EventWatcher.prototype.handleEvent = function(event) {
     var self = this;
-    
+
     if (typeof(self.timeout) === 'undefined') {
         console.log('[EventWatcher] Got event');
         self.processAction(0,event);
@@ -148,6 +148,20 @@ EventWatcher.prototype.performAction = function(index,event) {
     if (typeof(action.code) !== 'undefined') {
         self.evalCode(action.code,index,event);
     }
+	
+    _.forEach(action.notifications,function(element){
+        var deviceObject = self.controller.devices.get(element.device);
+        if (deviceObject !== null) {
+            if ((event["message"] !== undefined )) {
+                message = event["message"];
+            } else {
+                message = element.message;
+            }
+            deviceObject.set('metrics:message', message, {silent: true});
+            deviceObject.performCommand('on');
+            deviceObject.set('metrics:message', '', {silent: true});
+        } 
+    });
     
     self.processAction(index+1,event);
 };

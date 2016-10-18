@@ -16,5 +16,9 @@
    "on" : "On",
    "scenes_label" : "Scenes",
    "switches_label" : "Switch devices",
-   "toggle" : "Toggle"
+   "toggle" : "Toggle",
+   "notifications_label" : "Notification devices",
+   "notifications_helper":"Choose a notification trigger",
+   "notifications_message":"Message:",
+   "notifications_message_helper":"Message to send out, if the triggered event hasn't any message field"
 }

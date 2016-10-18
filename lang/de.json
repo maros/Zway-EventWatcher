@@ -10,11 +10,15 @@
    "events_label" : "Überwachte Ereignisse",
    "level_label" : "Level",
    "m_descr" : "Dieses Modul überwacht die eingestellen Ereignisse und führt die definierten Aktionen aus. Ereignisse (Events) können von anderen Automatisierungsmodulen wie zB. dem virtuellen Regensensor, Sicherheits Zone, Astronomie oder dem Anwesenheitsmodul stammen. Mehrer Aktionen wie zB. das Schalten von Beleuchtung und Dimmern und Szenen können mit beliebigen Zeitabständen definiert werden. Optional können verzögerte Aktionen durch andere Ereignisse unterbrochen werden.<br>Siehe <a href=https://github.com/maros/Zway-EventWatcher/blob/master/README.md>github.com/maros/Zway-EventWatcher</a> für detailliertere Dokumentation.",
-   "m_title" : "Ereigniss Überwachung",
+   "m_title" : "Ereignisüberwachung",
    "multilevels_label" : "Analoge Schalter",
    "off" : "Aus",
    "on" : "An",
    "scenes_label" : "Szenen",
    "switches_label" : "Binäre Schalter",
-   "toggle" : "Umschalten"
+   "toggle" : "Umschalten",
+   "notifications_label" : "Benachrichtigungen",
+   "notifications_helper":"Benachrichtigungsauslöser auswählen",
+   "notifications_message":"Nachricht:",
+   "notifications_message_helper":"Zu sende Nachricht, wenn das Ereignis kein eigenes Nachrichtenfeld hat"
 }
