@@ -8,14 +8,14 @@ consist of multiple actions and custom JavaScript code.
 
 The module ensures that at any given time only one event is processed. If the
 same event is triggered while it is still processing (see actions.delay) then
-the second event is silently discarded. Cancelling events that stop the 
+the second event is silently discarded. Cancelling events that stop the
 further processing of delayed events is also possible. (see eventsCancel)
 
 # Configuration
 
 ## events
 
-Events that trigger an action. Please refer to the documentation of the 
+Events that trigger an action. Please refer to the documentation of the
 event emitting modules for details. Commonly used events are:
 
 * rain.start
@@ -30,7 +30,7 @@ event emitting modules for details. Commonly used events are:
 
 ## eventsCancel
 
-Events that can cancel the processing of another event action. This can be 
+Events that can cancel the processing of another event action. This can be
 useful to implement coming home/going away scenes that can be aborted when
 inhabitants return shortly after leaving (eg. because they forgot something)
 Commonly used events are:
@@ -61,6 +61,11 @@ Define multiple multilevel devices to change
 
 Scenes to run
 
+## action.notifications.device, action.notifications.message
+
+Notifications to emit. Message is only used if the event does not have a message
+of its own.
+
 ## code
 
 User code to run (expert only). The code can access the original event
@@ -74,11 +79,11 @@ cancelEvents.
 # Installation
 
 The prefered way of installing this module is via the "Zwave.me App Store"
-available in 2.2.0 and higher. For stable module releases no access token is 
-required. If you want to test the latest pre-releases use 'k1_beta' as 
+available in 2.2.0 and higher. For stable module releases no access token is
+required. If you want to test the latest pre-releases use 'k1_beta' as
 app store access token.
 
-For developers and users of older Zway versions installation via git is 
+For developers and users of older Zway versions installation via git is
 recommended.
 
 ```shell
@@ -102,7 +107,7 @@ git checkout -b master --track origin/master
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or any 
+the Free Software Foundation, either version 3 of the License, or any
 later version.
 
 This program is distributed in the hope that it will be useful,
