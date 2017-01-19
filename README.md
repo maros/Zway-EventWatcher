@@ -21,18 +21,29 @@ event emitting modules for details. Commonly used events are:
 * rain.start
 * security.intrusion.alarm
 * security.intrusion.delayAlarm
+* security.smoke.alarm
+* security.flood.alarm
 * presence.home
 * presence.vacation
 * presence.away
 * presence.night
 * astronomy.sunset
 * astronomy.sunrise
+* Custom events emitted by the ConditionSwitch module
+* ...
+
+It is not possible to use EventWatcher to act upon generic level change events.
 
 ## eventsCancel
 
 Events that can cancel the processing of another event action. This can be
-useful to implement coming home/going away scenes that can be aborted when
+useful to implement
+
+* coming home/going away scenes that can be aborted when
 inhabitants return shortly after leaving (eg. because they forgot something)
+* aborting alarms (eg. turing off alarm devices)
+* ...
+
 Commonly used events are:
 
 * rain.stop
@@ -40,6 +51,8 @@ Commonly used events are:
 * presence.home
 * presence.vacation
 * presence.away
+* Custom events emitted by the ConditionSwitch module
+* ...
 
 ## actions
 
@@ -61,12 +74,12 @@ Define multiple multilevel devices to change
 
 Scenes to run
 
-## action.notifications.device, action.notifications.message
+## actions.notifications.device, actions.notifications.message
 
 Notifications to emit. Message is only used if the event does not have a message
 of its own.
 
-## code
+## actions.code
 
 User code to run (expert only). The code can access the original event
 via the variable event in its scope.
