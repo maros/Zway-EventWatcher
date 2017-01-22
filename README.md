@@ -18,21 +18,24 @@ further processing of delayed events is also possible. (see eventsCancel)
 Events that trigger an action. Please refer to the documentation of the
 event emitting modules for details. Commonly used events are:
 
-* rain.start
+* rain.start (by [Rain](https://github.com/maros/Zway-Rain) module)
 * security.intrusion.alarm
 * security.intrusion.delayAlarm
 * security.smoke.alarm
-* security.flood.alarm
+* security.flood.alarm (all by the [SecurityZone](https://github.com/maros/Zway-Rain) module)
 * presence.home
 * presence.vacation
 * presence.away
-* presence.night
+* presence.night (all by the [Presence](https://github.com/maros/Zway-Presence) module)
 * astronomy.sunset
-* astronomy.sunrise
-* Custom events emitted by the ConditionSwitch module
+* astronomy.sunrise (both by the [Astronomy](https://github.com/maros/Zway-Astronomy) module)
+* Custom events emitted by the [ConditionSwitch](https://github.com/maros/Zway-ConditionSwitch) module
+* Custom events emitted by the [EventButton](https://github.com/maros/Zway-EventButton) module
 * ...
 
-It is not possible to use EventWatcher to act upon generic level change events.
+It is not possible to use EventWatcher to act upon generic device level change events
+Use the [ConditionSwitch](https://github.com/maros/Zway-ConditionSwitch), IfThen, LogicalRules,
+... modules to process these events.
 
 ## eventsCancel
 
@@ -51,7 +54,8 @@ Commonly used events are:
 * presence.home
 * presence.vacation
 * presence.away
-* Custom events emitted by the ConditionSwitch module
+* Custom events emitted by the [ConditionSwitch](https://github.com/maros/Zway-ConditionSwitch) module
+* Custom events emitted by the [EventButton](https://github.com/maros/Zway-EventButton) module
 * ...
 
 ## actions
