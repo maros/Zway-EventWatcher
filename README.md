@@ -22,7 +22,7 @@ event emitting modules for details. Commonly used events are:
 * security.intrusion.alarm
 * security.intrusion.delayAlarm
 * security.smoke.alarm
-* security.flood.alarm (all by the [SecurityZone](https://github.com/maros/Zway-Rain) module)
+* security.flood.alarm (all by the [SecurityZone](https://github.com/maros/Zway-SecurityZone) module)
 * presence.home
 * presence.vacation
 * presence.away
