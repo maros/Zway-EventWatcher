@@ -18,7 +18,7 @@
                   "fields" : {
                      "code" : {
                         "label" : "__code_label__",
-                        "order" : 5,
+                        "order" : 6,
                         "type" : "textarea"
                      },
                      "delay" : {
@@ -105,6 +105,28 @@
                         },
                         "label" : "__switches_label__",
                         "order" : 2
+                     },
+                     "request" : {
+                        "fields" : {
+                           "url" : {
+                              "label" : "__url_label__",
+                              "order": 1
+                           },
+                           "method" : {
+                              "label" : "__method_label__",
+                              "order": 2
+                           },
+                           "login" : {
+                              "label" : "__login_label__",
+                              "order": 3
+                           },
+                           "password" : {
+                              "label" : "__password_label__",
+                              "order": 4
+                           }
+                        },
+                        "label" : "__request_label__",
+                        "order" : 7
                      }
                   }
                }
@@ -210,6 +232,22 @@
                         "type" : "object"
                      },
                      "type" : "array"
+                  },
+                  "request": {
+                     "type" : "object",
+                     "properties": {
+                        "url": { "type": "string" },
+                        "method": {
+                            "enum" : [
+                                "GET",
+                                "POST",
+                                "PUT",
+                                "DELETE"
+                            ]
+                        },
+                        "login": { "type": "string" },
+                        "password": { "type": "string" }
+                     }
                   }
                },
                "type" : "object"

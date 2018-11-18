@@ -163,6 +163,25 @@ EventWatcher.prototype.performAction = function(index,event) {
         }
     });
 
+    if (typeof(action.request.url) !== 'undefined') {
+        var req = {
+            url: action.request.url,
+            method: action.request.method,
+            async: true,
+            error: function(response) {
+                console.log('[EventWatcher] HTTP error: '+ response.statusText);
+            }
+        };
+        // With authorization
+        if (action.request.login && action.request.password) {
+            req.auth = {
+                    login: action.request.login,
+                    password: action.request.password
+            };
+        }
+        http.request(req);
+    }
+
     self.processAction(index+1,event);
 };
 
